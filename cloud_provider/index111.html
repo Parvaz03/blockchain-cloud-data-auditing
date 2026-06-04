@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>floral designer - free css template</title>
+<meta name="keywords" content="floral designer, free css template, web design, CSS, HTML" />
+<meta name="description" content="floral designer - HTML CSS, free css template provided by templatemo.com" />
+<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
+</head>
+<body>
+
+
+
+
+<div id="templatemo_menu_wrapper">
+
+	<div id="templatemo_menu">
+    
+    </div>
+
+</div> 
+
+<div id="templatemo_content_wrapper">
+
+    <div id="templatemo_content">
+    
+      <div class="section_w950 section_one">
+        
+            <h1><strong>File Details</strong></h1>
+            <form method="post" name="form1" id="form1">
+              <div class="box">
+                <table width="811" border="1" align="center" cellpadding="00" cellspacing="0">
+                  <tr>
+                    <th width="50" align="center" class="bg3">&nbsp;</th>
+                    <th width="88" align="center" class="bg3">Sno</th>
+                    <th width="125" align="center" class="bg3">Owner</th>
+                    <th width="110" align="center" class="bg3">Filename</th>
+                    <th width="191" align="center" class="bg3">Signature</th>
+                    <th width="179" align="center" class="bg3">Key</th>
+                    <th width="163" align="center" class="bg3">Date</th>
+                    <th width="163" align="center" class="bg3">Checking</th>
+                  </tr>
+                  <?php
+		  $qry=mysql_query("select * from send_audit ");
+		  $i=0;
+		  while($row=mysql_fetch_array($qry))
+		  { 
+		  $i++;
+	     $fid2=$qs["$fid"];
+		 $qs4=mysql_query("select * from user_files where id=$fid2");
+			
+		?>
+                  <tr>
+                    <td class="bg4"><input type="checkbox" name="gid" value="<?php $qs["id"]?>" /></td>
+                    <td class="bg4"><?php $i;?></td>
+                    <td class="bg4"><?php echo $row['$uname'];?></td>
+                    <td class="bg4"><?php echo $row['fname'];?></td>
+                    <td class="bg4"><?php echo $row['hsign'];?></td>
+                    <td class="bg4"><?php echo $row['key_block']?></td>
+                    <td class="bg4"><?php echo $row['rdate']?></td>
+                    <td class="bg4"><?php
+			 			if($qs4["status"]==2)
+						{
+							if($qs4["file_st"]==1)
+							{
+							echo "File found";
+							}
+							else if($qs4["file_st"]==2)
+							{
+							echo "File not found";
+							}
+							else if($qs4["file_st"]==3)
+							{
+							echo "File found but modified";
+							}
+						}
+						else
+						{
+						echo "File not verified";
+						}
+			  ?></td>
+                  </tr>
+                  <?php
+		  }
+		  ?>
+                </table>
+                <p align="center">
+                  <input type="submit" name="btn" value="Submit" />
+                </p>
+              </div>
+            </form>
+        <p>&nbsp;</p>
+            <p>&nbsp;</p>
+      </div>
+        
+        <div class="cleaner"></div>
+        
+        <div id="templatemo_footer">
+        Copyright © 2048 <a href="#">Your Company Name</a> | 
+        <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
+        </div> <!-- end of footer -->
+    </div>
+</div>
+<div align=center></div>
+</body>
+</html>
